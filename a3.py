@@ -1,13 +1,11 @@
 # coding: utf-8
 
-# # Assignment 3:  Recommendation systems
+# # Recommendation systems
 #
 # Here we'll implement a content-based recommendation algorithm.
 # It will use the list of genres for a movie as the content.
 # The data come from the MovieLens project: http://grouplens.org/datasets/movielens/
-# Note that I have not provided many doctests for this one. I strongly
-# recommend that you write your own for each function to ensure your
-# implementation is correct.
+
 
 # Please only use these imports.
 from collections import Counter, defaultdict
@@ -31,7 +29,7 @@ def download_data():
 
 
 def tokenize_string(my_string):
-    """ DONE. You should use this in your tokenize function.
+    """ Use this in your tokenize function.
     """
     return re.findall('[\w\-]+', my_string.lower())
 
@@ -42,8 +40,7 @@ def tokenize(movies):
     This will contain a list of strings, one per token, extracted
     from the 'genre' field of each movie. Use the tokenize_string method above.
 
-    Note: you may modify the movies parameter directly; no need to make
-    a new copy.
+    
     Params:
       movies...The movies DataFrame
     Returns:
@@ -167,7 +164,7 @@ def featurize(movies):
 
 
 def train_test_split(ratings):
-    """DONE.
+    """
     Returns a random split of the ratings matrix into a training and testing set.
     """
     test = set(range(len(ratings))[::1000])
@@ -255,7 +252,7 @@ def make_predictions(movies, ratings_train, ratings_test):
 
 
 def mean_absolute_error(predictions, ratings_test):
-    """DONE.
+    """
     Return the mean absolute error of the predictions.
     """
     return np.abs(predictions - np.array(ratings_test.rating)).mean()
